@@ -5,3 +5,6 @@ playwright-report
 .fablize
 *.log
 .claude
+
+.vercel
+.env*
