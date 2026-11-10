@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "nameKo": "GPT_PARK 시티",
+    "nameEn": "GPT_PARK City",
+    "coord": "36.50°N 127.50°E",
+    "tagline": "호수를 품은 도시, 사람과 휴머노이드가 함께 사는 곳",
+    "seriesNo": "Nº 01"
+  },
+  "terrain": {
+    "type": "basin",
+    "size": 20,
+    "seaLevel": 0.0,
+    "shapes": [
+      { "op": "add", "shape": "box",     "x": 0,    "z": 0,   "w": 21, "d": 21, "h": 0.7 },
+      { "op": "sub", "shape": "circle",  "x": 0,    "z": 0.5, "r": 4.6 },
+      { "op": "sub", "shape": "capsule", "x": -1.5, "z": 2.5, "x2": -3,  "z2": 4.8,  "r": 1.4 },
+      { "op": "sub", "shape": "capsule", "x": 4.2,  "z": 0.6, "x2": 11,  "z2": -0.4, "r": 0.85 },
+      { "op": "add", "shape": "circle",  "x": -8,   "z": -8,  "r": 3.2, "h": 2.4 },
+      { "op": "add", "shape": "circle",  "x": 8,    "z": -8,  "r": 3.0, "h": 2.8 },
+      { "op": "add", "shape": "circle",  "x": 8.5,  "z": 8.5, "r": 2.6, "h": 1.9 },
+      { "op": "add", "shape": "circle",  "x": -8.5, "z": 8,   "r": 2.4, "h": 1.6 }
+    ],
+    "noise": { "scale": 0.35, "amp": 0.2, "seed": 7 }
+  },
+  "landmarks": [
+    { "id": "lm1", "name": "GPT_PARK 타워",      "sub": "도시의 심장, 드론버스 정거장", "kind": "tower",        "zone": "shore",    "x": -3.6, "z": -3.4, "rotY": 0,   "scale": 1, "params": { "height": 6.5, "color": "#e9edf2" } },
+    { "id": "lm2", "name": "레이크 브릿지",       "sub": "호수를 가로지르는 사장교",    "kind": "bridge-cable", "zone": "water",    "x": 0,    "z": 0.5,  "rotY": 0,   "scale": 1, "params": { "length": 10.4, "pylons": 2 } },
+    { "id": "lm3", "name": "GPT_PARK 중앙역",    "sub": "지하철 순환선 출발역",        "kind": "station",      "zone": "inland",   "x": 3.2,  "z": -6.9, "rotY": 0,   "scale": 1, "params": {} },
+    { "id": "lm4", "name": "AI 연구단지",         "sub": "휴머노이드가 태어나는 곳",    "kind": "highrise",     "zone": "inland",   "x": 8.0,  "z": 3.0,  "rotY": 0,   "scale": 1, "params": { "count": 5, "maxHeight": 4.5 } },
+    { "id": "lm5", "name": "공존 공원",           "sub": "사람과 로봇의 산책길",        "kind": "park",         "zone": "shore",    "x": -5.0, "z": 2.2,  "rotY": 0,   "scale": 1, "params": {} },
+    { "id": "lm6", "name": "호숫가 장터",         "sub": "로봇 상인과 사람 손님",       "kind": "market",       "zone": "shore",    "x": 1.8,  "z": 5.7,  "rotY": 0.2, "scale": 1, "params": { "rows": 3 } },
+    { "id": "lm7", "name": "휴머노이드 아카데미", "sub": "함께 배우는 학교",            "kind": "school",       "zone": "inland",   "x": -2.0, "z": -7.0, "rotY": 0,   "scale": 1, "params": {} },
+    { "id": "lm8", "name": "에코 풍력 능선",      "sub": "도시를 움직이는 바람",        "kind": "windmill",     "zone": "mountain", "x": 7.7,  "z": -7.7, "rotY": 0.6, "scale": 1, "params": {} }
+  ],
+  "fillers": { "houses": 110, "trees": 180, "people": 36, "humanoids": 36, "seed": 11 },
+  "movers": [
+    { "type": "bird",  "variant": "dronebus",   "count": 2, "altitude": 3.4, "speed": 0.8, "loop": true,
+      "path": [[-3, -2.2], [2, -5], [7, -3], [8.6, 3], [4, 6.6], [-2, 6.2], [-6.4, 2]] },
+    { "type": "train", "variant": "subway",     "count": 1, "depth": -2.48, "speed": 1.4, "loop": true,
+      "path": [[-8.6, -9.55], [8.6, -9.55], [9.55, -8.6], [9.55, 8.6], [8.6, 9.55], [-8.6, 9.55], [-9.55, 8.6], [-9.55, -8.6]] },
+    { "type": "car",   "variant": "autonomous", "count": 5, "speed": 1.0, "loop": true,
+      "path": [[0, -6.3], [4.8, -4.3], [6.8, 0.5], [4.8, 5.3], [0, 7.3], [-4.8, 5.3], [-6.8, 0.5], [-4.8, -4.3]] },
+    { "type": "fish",  "count": 6, "speed": 0.5, "loop": true,
+      "path": [[-2, -1.5], [2.5, -1], [3, 2], [0, 3.5], [-3, 2]] }
+  ],
+  "actions": [
+    { "label": "드론버스 출발", "effect": "launch",    "counterLabel": "운항", "target": "dronebus" },
+    { "label": "네온 점등",     "effect": "lights",    "counterLabel": "점등" },
+    { "label": "공존 축제",     "effect": "fireworks", "counterLabel": "축제" }
+  ],
+  "flavors": [
+    { "name": "레이크 블루", "water": "#1e6fd9", "jelly": "#3fa9f5", "accent": "#1f7ae0" },
+    { "name": "네온 민트",   "water": "#0f9e8f", "jelly": "#3fe0c5", "accent": "#14a9ae" },
+    { "name": "AI 퍼플",     "water": "#5b3fd1", "jelly": "#9a7cf7", "accent": "#7c5cf0" }
+  ],
+  "defaults": { "bounce": 50, "calm": 30, "tide": 50, "wind": 40, "flavor": 0 }
+}
